@@ -14,6 +14,6 @@ contract Attacker5 is Ownable {
     Token target = Token(0x042112F48adb93cA5adC4b74022A00101B619d5E);
 
     function attack() external onlyOwner {
-        target.transfer(msg.sender, 20);
+        target.transfer(msg.sender, 100000);
     }
 }
