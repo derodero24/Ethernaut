@@ -1,4 +1,4 @@
-const Attacker = artifacts.require("Attacker3");
+const Attacker = artifacts.require("Attacker4");
 
 module.exports = function (deployer) {
     deployer.deploy(Attacker);
