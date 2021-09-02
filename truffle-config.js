@@ -12,7 +12,8 @@ module.exports = {
           "https://rinkeby.infura.io/v3/" + infura_id
         );
       },
-      network_id: 4
+      network_id: 4,
+      gasPrice: 200000000000 // default:20000000000
     }
   },
 

