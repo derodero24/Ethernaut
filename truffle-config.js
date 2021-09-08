@@ -13,7 +13,6 @@ module.exports = {
         );
       },
       network_id: 4,
-      gas: 6721445,
       gasPrice: 200000000000 // default:20000000000
     }
   },
